@@ -17,3 +17,9 @@ To test this model, I created future patients by generating randomized amount of
 I then used the regressor I previously fit to make attrition predictions for a new datset. From printing out the head, we can see that the pattern of readmission with a high number of outpatient visits matches the past pattern because these predicted probabilities were generated using the regressor trained on the past dataset.
 
 The final bit of code predicts those with the highest to lowest prediction of readmission based on the results of the logistic regression. This logistic regression is used to predict the binary outcome of whether or not a patient is readmitted. 
+
+### Confusion Matrix to Measure Prediction Accuracy
+For a classification problem like this one, confusion matrix can be used to measure the accuracy of the model. we need to begin by creating a list of predictions versus the actual values. We can then use metrics to hve either 0 or 1so we can convert our probabilities to test the accuracy. For this model, it was good at having true positives, or predicting someone would be readmitted that was. It was high in false negatives, when we predicted a patient would not be readmitted but they were (which is not ideal). A high false negative rate is especially not great in healthcare because failing to flag patients at high risk for readmission could lead to worse outcomes. Ideally, both false positives and false negatives would be as low as possible. For precision (.56) and recall (.88), we can deduce that our model was good at predicting patients who were at high risk of reaadmission would be readmitted but not great at predicting those who would actually be readmitted in comparison to how many we found to be at high risk of readmission. 
+
+### Limitations and Future Discussion
+Overall, using only one input feature can lead to underfitting and generating high readmission prediction rates. A better model would utilize multiple feautres. 
